@@ -1,0 +1,7 @@
+-- auto Generated on 2019-01-17
+-- DROP TABLE IF EXISTS home;
+CREATE TABLE home(
+	price INT (11) NOT NULL AUTO_INCREMENT COMMENT 'price',
+	color VARCHAR (50) NOT NULL DEFAULT '' COMMENT 'color',
+	PRIMARY KEY (price)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'home';

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="homeWorkAOP" class="com.example.springsjy.HomeWorkAOP">
+        <constructor-arg value="#{T(System).out"/>
+    </bean>
+
+    <aop:config>
+        <aop:aspect ref="homeWorkAOP">
+            <aop:pointcut id="pointcut" expression="execution(* *.doHomeWork(..))"></aop:pointcut>
+            <aop:before pointcut-ref="pointcut" method="beforeHomeWork"></aop:before>
+            <aop:after pointcut-ref="pointcut" method="afterHomeWork"></aop:after>
+        </aop:aspect>
+    </aop:config>
+
+    <context:component-scan base-package="com.example.springsjy"></context:component-scan>
+
+    <bean id="beanId" class="com.example.springsjy.HomeWork">
+        <constructor-arg value="ssss"></constructor-arg>
+    </bean>
+</beans>

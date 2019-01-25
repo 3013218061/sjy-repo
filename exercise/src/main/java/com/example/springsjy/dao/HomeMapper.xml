@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springsjy.dao.HomeMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.example.springsjy.Home">
+        <result column="price" property="price" jdbcType="INTEGER"/>
+        <result column="color" property="color" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        price,
+        color
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="home.price">
+        INSERT INTO home (
+            price,
+            color
+        ) VALUES (
+            #{home.price,jdbcType=INTEGER},
+            #{home.color,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="home.price">
+        INSERT INTO home
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="home.price!=null"> price,</if>
+            <if test="home.color!=null"> color,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="home.price!=null">#{home.price,jdbcType=INTEGER},
+            </if>
+            <if test="home.color!=null">#{home.color,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO home (
+            price,
+            color
+        )VALUES
+        <foreach collection="homes" item="home" index="index" separator=",">
+            (
+            #{home.price,jdbcType=INTEGER},
+            #{home.color,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE home
+        <set>
+            <if test="home.color != null"> color= #{home.color,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE price = #{home.price,jdbcType=INTEGER}
+    </update>
+</mapper>
+
