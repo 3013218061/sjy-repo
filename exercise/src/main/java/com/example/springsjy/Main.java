@@ -13,8 +13,9 @@ package com.example.springsjy;
  */
 public class Main {
     private static int index = 0;
-
     public static void main(String... sss){
+        String aa = "sssssss[][[]{sfdafd}0{{]]]}}}0";
+
         //Heap OOM
         /*List<byte[]> list = new ArrayList<byte[]>();
         int i = 0;
@@ -72,11 +73,11 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-        try {
+        /*try {
             Thread.sleep(1000 * 60 * 5);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public void call(){
